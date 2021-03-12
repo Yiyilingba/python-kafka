@@ -5,7 +5,9 @@ import time
 
 producer = KafkaProducer(
     value_serializer=lambda v: json.dumps(v).encode('utf-8'),
-    bootstrap_servers="10.255.50.128:31255"
+    bootstrap_servers=["kafka-0.kafka-svc.isp-zhaj-dev.svc.cluster.local:9092",
+                       "kafka-1.kafka-svc.isp-zhaj-dev.svc.cluster.local:9092",
+                       "kafka-2.kafka-svc.isp-zhaj-dev.svc.cluster.local:9092"]
 )
 packageUUId = uuid.uuid4()  # 生成图片UUID
 
@@ -51,7 +53,7 @@ js = {
 num = input("请输入需要发送的消息条数：")
 # while True:
 for i in range(int(num)):
-# for i in range(1):
+    # for i in range(1):
     time.sleep(1)
     data = js
     producer.send('SEND_IMAGE_DATA', data)
