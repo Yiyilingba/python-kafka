@@ -1,4 +1,4 @@
-from python:3.7
+from python:3.8.4
 ENV TZ=Asia/Shanghai
 RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
