@@ -9,6 +9,11 @@ producer = KafkaProducer(
                        "kafka-1.kafka-svc.isp-zhaj-dev.svc.cluster.local:9092",
                        "kafka-2.kafka-svc.isp-zhaj-dev.svc.cluster.local:9092"]
 )
+
+# producer = KafkaProducer(
+#     value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+#     bootstrap_servers="10.255.50.180:9092"
+# )
 packageUUId = uuid.uuid4()  # 生成图片UUID
 
 js = {
@@ -50,9 +55,9 @@ js = {
     "focus_judge": 1  # 集中判图数据结构
 }
 
-num = input("请输入需要发送的消息条数：")
+# num = input("请输入需要发送的消息条数：")
 # while True:
-for i in range(int(num)):
+for i in range(20):
     # for i in range(1):
     time.sleep(1)
     data = js
